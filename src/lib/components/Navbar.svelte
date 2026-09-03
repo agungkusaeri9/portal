@@ -83,9 +83,21 @@
 			items: [
 				{
 					title: 'English',
-					desc: 'Pembelajaran & peningkatan kemampuan bahasa Inggris',
-					badge: 'Soon',
-					isSoon: true
+					desc: 'Pengembangan kemampuan bahasa Inggris harian & profesional',
+					children: [
+						{
+							title: 'Work & Career English',
+							desc: '50 modul standup, PR, meeting, architecture & interview',
+							href: '/growth/english',
+							badge: 'Active'
+						},
+						{
+							title: 'General & Daily English',
+							desc: '74 modul daily life, social, dining, travel & gaming',
+							href: '/growth/english/general',
+							badge: 'Active'
+						}
+					]
 				},
 				{
 					title: 'IOT',
