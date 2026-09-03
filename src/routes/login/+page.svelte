@@ -74,7 +74,7 @@
 							required
 							autocomplete="username"
 							value={form?.username ?? ''}
-							placeholder="agungkusaeri9"
+							placeholder="username"
 							class="w-full pl-11 pr-4 py-3 bg-slate-50/80 hover:bg-white focus:bg-white border border-slate-200 text-slate-900 placeholder-slate-400 text-sm rounded-xl focus:outline-none focus:border-indigo-600 focus:ring-4 focus:ring-indigo-500/10 transition duration-150 ease-in-out"
 						/>
 					</div>
