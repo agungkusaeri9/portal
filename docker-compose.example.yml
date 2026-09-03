@@ -7,7 +7,10 @@
 services:
   portal-app:
     container_name: portal_svelte_app
-    image: ghcr.io/agungkusaeri9/portal:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portal-app:latest
     restart: unless-stopped
     ports:
       - "3000:3000"
