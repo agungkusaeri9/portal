@@ -149,27 +149,51 @@
 			items: [
 				{
 					title: 'Programming',
-					desc: 'Tantangan .NET Core, NestJS & TypeScript',
-					badge: 'Soon',
-					isSoon: true
+					desc: 'Arsitektur backend, concurrency & distributed systems',
+					children: [
+						{
+							title: '.NET Mid → Advanced',
+							desc: '60 modul Architecture, EF Core, Outbox, K8s & Observability',
+							href: '/challenges/dotnet',
+							badge: 'Active'
+						},
+						{
+							title: 'NestJS & TypeScript',
+							desc: 'Microservices, DDD, GraphQL & CQRS pattern',
+							badge: 'Soon',
+							isSoon: true
+						}
+					]
 				},
 				{
 					title: 'K6 Load Testing',
-					desc: 'Skenario stress test, spike test & benchmark API',
-					badge: 'Soon',
-					isSoon: true
+					desc: '15 level stress test, spike test & benchmark API',
+					href: '/challenges/k6',
+					badge: 'Active'
 				},
 				{
-					title: 'DevOps & Docker',
-					desc: 'Containerization, CI/CD pipeline & Kubernetes',
-					badge: 'Soon',
-					isSoon: true
+					title: 'Kubernetes & DevOps',
+					desc: '18 modul Pod, HPA, Ingress, PV & zero-downtime deploy',
+					href: '/challenges/kubernetes',
+					badge: 'Active'
 				},
 				{
-					title: 'Database & Architecture',
-					desc: 'Redis caching, query profiling & system design',
-					badge: 'Soon',
-					isSoon: true
+					title: 'Databases',
+					desc: 'MySQL & Microsoft SQL Server deep dive architecture',
+					children: [
+						{
+							title: 'MySQL Advanced',
+							desc: '56 modul Index, MVCC, Replication, HA & PITR',
+							href: '/challenges/mysql',
+							badge: 'Active'
+						},
+						{
+							title: 'SQL Server Advanced',
+							desc: '59 modul T-SQL, Query Store, Always On & HA',
+							href: '/challenges/sqlserver',
+							badge: 'Active'
+						}
+					]
 				}
 			]
 		},
