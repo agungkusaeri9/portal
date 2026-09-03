@@ -17,6 +17,7 @@ jobs:
   validate:
     name: Code Check & Build (Bun)
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: 📥 Checkout Repository
@@ -44,6 +45,7 @@ jobs:
     needs: validate
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 8
 
     steps:
       - name: 📥 Checkout Repository
@@ -87,6 +89,7 @@ jobs:
     needs: docker-build-push
     if: github.ref == 'refs/heads/main' && github.event_name == 'push'
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: 🌐 SSH Deploy to VPS
@@ -96,13 +99,15 @@ jobs:
           username: ${{ secrets.VPS_USER }}
           key: ${{ secrets.VPS_SSH_KEY }}
           port: ${{ secrets.VPS_PORT || 22 }}
+          timeout: 45s
+          command_timeout: 4m
           script: |
             cd ${{ secrets.VPS_PATH || '~/portal' }}
             echo "Working directory: $(pwd)"
             echo "Pulling latest Docker image from GHCR..."
             docker compose pull
             echo "Restarting containers..."
-            docker compose up -d --remove-orphans
+            docker compose up -d --remove-orphans --force-recreate
             echo "Cleaning unused dangling images..."
             docker image prune -f
             echo "Deployment completed successfully! 🚀"
