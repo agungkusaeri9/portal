@@ -1,0 +1,33 @@
+# ==============================================================================
+# Docker Compose Example - SvelteKit Portal App (Bun Runtime)
+# Salin file ini menjadi `docker-compose.yml` untuk lingkungan lokal/deployment:
+#   cp docker-compose.example.yml docker-compose.yml
+# ==============================================================================
+
+services:
+  portal-app:
+    container_name: portal_svelte_app
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: portal-app:latest
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - PORT=3000
+      - HOST=0.0.0.0
+      - ORIGIN=http://localhost:3000
+    healthcheck:
+      test: ["CMD-SHELL", "wget --no-verbose --tries=1 --spider http://localhost:3000/login || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    networks:
+      - portal-network
+
+networks:
+  portal-network:
+    driver: bridge
